@@ -1,0 +1,478 @@
+@prefix : <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#> .
+
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#ingredient
+:ingredient rdf:type owl:ObjectProperty ,
+                     owl:TransitiveProperty ;
+            rdfs:range :Ingredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#servesPizza
+:servesPizza rdf:type owl:ObjectProperty ;
+             rdfs:domain :Restaurant ;
+             rdfs:range :Pizza .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#vegetarianIngredient
+:vegetarianIngredient rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :ingredient ;
+                      rdfs:range :Ingredient .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#gramm
+:gramm rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Pizza ;
+       rdfs:range rdfs:Literal .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#numberOfPieces
+:numberOfPieces rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Pizza ;
+                rdfs:range xsd:integer .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#pricePerPiece
+:pricePerPiece rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Pizza ;
+               rdfs:range rdfs:Literal .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#priceinDollars
+:priceinDollars rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Pizza ;
+                rdfs:range rdfs:Literal .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#priceinEuro
+:priceinEuro rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Pizza ;
+             rdfs:range rdfs:Literal .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Ingredient
+:Ingredient rdf:type owl:Class .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Meat
+:Meat rdf:type owl:Class ;
+      rdfs:subClassOf :Ingredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#MeatyPizza
+:MeatyPizza rdf:type owl:Class ;
+            rdfs:subClassOf :Pizza .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#NonVegeterianRestaurant
+:NonVegeterianRestaurant rdf:type owl:Class ;
+                         rdfs:subClassOf :Restaurant .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Pizza
+:Pizza rdf:type owl:Class .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Restaurant
+:Restaurant rdf:type owl:Class .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#VeganIngredient
+:VeganIngredient rdf:type owl:Class ;
+                 rdfs:subClassOf :VegetarianIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#VeganPizza
+:VeganPizza rdf:type owl:Class ;
+            rdfs:subClassOf :Pizza .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Vegetable
+:Vegetable rdf:type owl:Class ;
+           rdfs:subClassOf :VeganIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#VegetarianIngredient
+:VegetarianIngredient rdf:type owl:Class ;
+                      rdfs:subClassOf :Ingredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#VegetarianPizza
+:VegetarianPizza rdf:type owl:Class ;
+                 rdfs:subClassOf :Pizza .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#VegeterianRestaurant
+:VegeterianRestaurant rdf:type owl:Class ;
+                      rdfs:subClassOf :Restaurant .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#BellPepper
+:BellPepper rdf:type owl:NamedIndividual ,
+                     :Vegetable .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Goat_Cheese
+:Goat_Cheese rdf:type owl:NamedIndividual ,
+                      :VegetarianIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Gorgonzola
+:Gorgonzola rdf:type owl:NamedIndividual ,
+                     :VegetarianIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Ham
+:Ham rdf:type owl:NamedIndividual ,
+              :Meat .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Mamma_In_Cucina
+:Mamma_In_Cucina rdf:type owl:NamedIndividual ,
+                          :Restaurant ;
+                 :servesPizza :Prosciutto ,
+                              <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Margherita> ,
+                              <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#4Cheese> .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Mushroom
+:Mushroom rdf:type owl:NamedIndividual ,
+                   :VeganIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Olives
+:Olives rdf:type owl:NamedIndividual ,
+                 :VeganIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Parmigiano
+:Parmigiano rdf:type owl:NamedIndividual ,
+                     :VegetarianIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Pizza_Romana
+:Pizza_Romana rdf:type owl:NamedIndividual ,
+                       :Pizza .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Prosciutto
+:Prosciutto rdf:type owl:NamedIndividual ,
+                     :Pizza ;
+            :ingredient :Ham ,
+                        :Mushroom ,
+                        :Olives ,
+                        <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Mozzarella> ,
+                        <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Tomato> ,
+                        <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#YeastedDough> ;
+            :gramm 560 ;
+            :numberOfPieces 4 ;
+            :priceinEuro 12 .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/ontology#Verdure
+:Verdure rdf:type owl:NamedIndividual ,
+                  :Pizza ;
+         :ingredient :BellPepper ,
+                     :Mushroom ,
+                     :Olives ,
+                     <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Tomato> ,
+                     <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#YeastedDough> .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Bacon
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Bacon> rdf:type owl:NamedIndividual ,
+                                                                           :Meat .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Egg
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Egg> rdf:type owl:NamedIndividual ,
+                                                                         :VegetarianIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Flatbread
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Flatbread> rdf:type owl:NamedIndividual ,
+                                                                               :Ingredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Flour
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Flour> rdf:type owl:NamedIndividual ,
+                                                                           :VeganIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Margherita
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Margherita> rdf:type owl:NamedIndividual ,
+                                                                                :Pizza ;
+                                                                       :ingredient <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Mozzarella> ,
+                                                                                   <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Tomato> ,
+                                                                                   <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#YeastedDough> ;
+                                                                       :vegetarianIngredient <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Tomato> ;
+                                                                       :gramm 430 ;
+                                                                       :numberOfPieces 4 ;
+                                                                       :priceinEuro 8.50 .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Mozzarella
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Mozzarella> rdf:type owl:NamedIndividual ,
+                                                                                :VegetarianIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Tomato
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Tomato> rdf:type owl:NamedIndividual ,
+                                                                            :Vegetable .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Water
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Water> rdf:type owl:NamedIndividual ,
+                                                                           :Ingredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#YeastedDough
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#YeastedDough> rdf:type owl:NamedIndividual ,
+                                                                                  :VeganIngredient .
+
+
+###  http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#4Cheese
+<http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#4Cheese> rdf:type owl:NamedIndividual ,
+                                                                             :Pizza ;
+                                                                    :ingredient :Goat_Cheese ,
+                                                                                :Gorgonzola ,
+                                                                                :Parmigiano ,
+                                                                                <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Mozzarella> ,
+                                                                                <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#Tomato> ,
+                                                                                <http://ise-fizkarlsruhe.github.io/openhpi-kg2023/resource#YeastedDough> .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:x rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:y rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:z rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:d rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:p rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:n rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:r rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:euro rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:dollars rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "S3"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Restaurant ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :servesPizza ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :y
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :ingredient ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :y ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :z
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#classPredicate> :Meat ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :z
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :NonVegeterianRestaurant ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "S5"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Pizza ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :priceinEuro ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :p
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :numberOfPieces ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :n
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#divide> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> ( :r
+                                                                                                                                     :p
+                                                                                                                                     :n
+                                                                                                                                   )
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :pricePerPiece ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :r
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "S2"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Pizza ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :ingredient ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :y
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :Vegetable ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :y
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :vegetarianIngredient ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :y
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "S4"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Pizza ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :priceinEuro ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :euro
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#multiply> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :dollars ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :euro ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 1.06 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priceinDollars ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :dollars
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment ""^^xsd:string ;
+   rdfs:label "S1"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :VegetarianIngredient ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Ingredient ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
