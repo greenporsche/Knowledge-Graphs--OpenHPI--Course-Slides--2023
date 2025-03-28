@@ -1,0 +1,9 @@
+# Junk
+.DS_Store
+
+# Python
+__pycache__
+*.pyc
+
+# Notebook Checkpoints
+.ipynb_checkpoints/
